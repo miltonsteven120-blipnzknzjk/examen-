@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#portal {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #3a0ca3, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+#portal h1 {
+  font-size: 4rem;
+  text-shadow: 0 0 20px #9d4edd;
+}
+
+#portal p {
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+#portal.exit {
+  transform: scale(3);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ESCENAS */
+.scene {
+  position: absolute;
+  inset: 0;
+  padding: 10vh 15vw;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1s ease;
+  pointer-events: none;
+}
+
+.scene.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* ESTILOS ÚNICOS */
+.scene-1 { background: radial-gradient(circle at top, #240046, #000); }
+.scene-2 { background: linear-gradient(120deg, #03045e, #000); }
+.scene-3 { background: repeating-linear-gradient(45deg, #000, #000 10px, #240046 12px); animation: glitch 0.3s infinite; }
+.scene-4 { background: radial-gradient(circle, #ff6d00, #240046); }
+.scene-5 { background: linear-gradient(to top, #000, #3c096c); }
+.scene-6 { background: radial-gradient(circle, #004e64, #000); }
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+#hint {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+/* GLITCH */
+@keyframes glitch {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(30deg); }
+}
